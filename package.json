@@ -37,10 +37,10 @@
   "main": "index.js",
   "repository": {
     "type": "git",
-    "url": "https://github.com/rwjblue/ember-export-application-global.git"
+    "url": "https://github.com/ember-cli/ember-export-application-global.git"
   },
   "bugs": {
-    "url": "https://github.com/rwjblue/ember-export-application-global/issues"
+    "url": "https://github.com/ember-cli/ember-export-application-global/issues"
   },
-  "homepage": "https://github.com/rwjblue/ember-export-application-global"
+  "homepage": "https://github.com/ember-cli/ember-export-application-global"
 }

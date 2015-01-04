@@ -1,6 +1,6 @@
 # ember-export-application-global
 
-[![Build Status](https://travis-ci.org/rwjblue/ember-export-application-global.svg?branch=master)](https://travis-ci.org/rwjblue/ember-export-application-global)
+[![Build Status](https://travis-ci.org/ember-cli/ember-export-application-global.svg?branch=master)](https://travis-ci.org/ember-cli/ember-export-application-global)
 
 Sets `window.MyAppName` up as the application instance upon boot.
 

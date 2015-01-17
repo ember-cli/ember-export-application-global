@@ -16,7 +16,8 @@ module('ExportApplicationGlobalInitializer', {
   },
 
   teardown: function() {
-    delete window[config.modulePrefix];
+    var classifiedName = Ember.String.classify(config.modulePrefix);
+    delete window[classifiedName];
     config.modulePrefix = originalModulePrefix;
     config.exportApplicationGlobal = originalExportApplicationGlobal;
   }
@@ -36,4 +37,3 @@ test('it does not set the global unless exportApplicationGlobal is true', functi
 
   ok(window.Foo !== 'blazorz');
 });
-

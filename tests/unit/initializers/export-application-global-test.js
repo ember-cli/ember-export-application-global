@@ -1,4 +1,5 @@
 import Ember from 'ember';
+import { module, test } from 'qunit';
 import config from '../../../config/environment';
 import { initialize } from '../../../initializers/export-application-global';
 

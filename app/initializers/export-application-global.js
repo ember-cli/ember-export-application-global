@@ -4,7 +4,7 @@ import config from '../config/environment';
 export function initialize(container, application) {
   var classifiedName = Ember.String.classify(config.modulePrefix);
 
-  if (config.exportApplicationGlobal) {
+  if (config.exportApplicationGlobal && !window[classifiedName]) {
     window[classifiedName] = application;
   }
 };

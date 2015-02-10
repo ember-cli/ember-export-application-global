@@ -38,3 +38,11 @@ test('it does not set the global unless exportApplicationGlobal is true', functi
 
   ok(window.Foo !== 'blazorz');
 });
+
+test('it does not set the global if it already exists falsy', function() {
+  window.Foo = 'hello';
+  config.modulePrefix = 'foo';
+  initialize(null, 'blazorz');
+
+  ok(window.Foo !== 'blazorz');
+});

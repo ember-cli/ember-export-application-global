@@ -5,20 +5,20 @@ import config from '../../config/environment';
 var App;
 
 module('Acceptance: ConfirmGlobal', {
-  setup: function() {
+  beforeEach: function() {
     App = startApp();
   },
 
-  teardown: function() {
+  afterEach: function() {
     Ember.run(App, 'destroy');
   }
 });
 
-test('', function() {
+test('Set global', function(assert) {
   App.someProp = 'foo-bar';
   visit('/');
 
   andThen(function() {
-    equal(window.Dummy.someProp, App.someProp, 'App is exported to window.Dummy');
+    assert.equal(window.Dummy.someProp, App.someProp, 'App is exported to window.Dummy');
   });
 });

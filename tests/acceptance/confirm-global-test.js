@@ -23,3 +23,13 @@ test('Set global', function(assert) {
     assert.equal(window.Dummy.someProp, App.someProp, 'App is exported to window.Dummy');
   });
 });
+
+test('Don\'t clobber', function(assert) {
+  window.Dummy = 'test';
+  App.someProp = 'foo-bar';
+  visit('/');
+
+  andThen(function() {
+    assert.equal(window.Dummy, 'test', 'App is not exported to window.Dummy');
+  });
+});

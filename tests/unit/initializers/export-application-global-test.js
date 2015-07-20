@@ -68,12 +68,3 @@ test('it sets a custom global name if specified', function(assert) {
   assert.ok(window.Foo !== app);
   assert.ok(window.Catz === app);
 });
-
-test('it sets a custom global name if specified', function(assert) {
-  config.modulePrefix = 'foo';
-  config.exportApplicationGlobal = 'Catz';
-  initialize(null, 'blazorz');
-
-  assert.ok(window.Foo !== 'blazorz');
-  assert.ok(window.Catz === 'blazorz');
-});

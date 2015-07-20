@@ -19,6 +19,8 @@ module('ExportApplicationGlobalInitializer', {
   teardown: function() {
     var classifiedName = Ember.String.classify(config.modulePrefix);
     delete window[classifiedName];
+    delete window.Foo;
+    delete window.Catz;
     config.modulePrefix = originalModulePrefix;
     config.exportApplicationGlobal = originalExportApplicationGlobal;
     application = originalModulePrefix = originalExportApplicationGlobal = null;

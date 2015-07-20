@@ -3,7 +3,7 @@ import { module, test } from 'qunit';
 import config from '../../../config/environment';
 import { initialize } from '../../../initializers/export-application-global';
 
-var container, application, originalModulePrefix, originalExportApplicationGlobal;
+var application, originalModulePrefix, originalExportApplicationGlobal;
 
 module('ExportApplicationGlobalInitializer', {
   setup: function() {
@@ -21,28 +21,29 @@ module('ExportApplicationGlobalInitializer', {
     delete window[classifiedName];
     config.modulePrefix = originalModulePrefix;
     config.exportApplicationGlobal = originalExportApplicationGlobal;
+    application = originalModulePrefix = originalExportApplicationGlobal = null;
   }
 });
 
-test('it sets the application on window with the classified modulePrefix', function() {
+test('it sets the application on window with the classified modulePrefix', function(assert) {
   config.modulePrefix = 'foo';
   initialize(null, 'blazorz');
 
-  equal(window.Foo, 'blazorz');
+  assert.equal(window.Foo, 'blazorz');
 });
 
-test('it does not set the global unless exportApplicationGlobal is true', function() {
+test('it does not set the global unless exportApplicationGlobal is true', function(assert) {
   config.modulePrefix = 'foo';
   config.exportApplicationGlobal = false;
   initialize(null, 'blazorz');
 
-  ok(window.Foo !== 'blazorz');
+  assert.ok(window.Foo !== 'blazorz');
 });
 
-test('it does not set the global if it already exists falsy', function() {
+test('it does not set the global if it already exists falsy', function(assert) {
   window.Foo = 'hello';
   config.modulePrefix = 'foo';
   initialize(null, 'blazorz');
 
-  ok(window.Foo !== 'blazorz');
+  assert.ok(window.Foo !== 'blazorz');
 });

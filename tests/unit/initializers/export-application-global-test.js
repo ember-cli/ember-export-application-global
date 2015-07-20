@@ -33,6 +33,15 @@ test('it sets the application on window with the classified modulePrefix', funct
   assert.equal(window.Foo, app);
 });
 
+test('it sets the application on window with the classified modulePrefix when exportApplicationGlobal is true', function(assert) {
+  config.modulePrefix = 'foo';
+  config.exportApplicationGlobal = true;
+  var app = { reopen: function(){} };
+  initialize(null, app);
+
+  assert.equal(window.Foo, app);
+});
+
 test('it does not set the global unless exportApplicationGlobal is true', function(assert) {
   config.modulePrefix = 'foo';
   config.exportApplicationGlobal = false;

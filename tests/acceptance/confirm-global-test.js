@@ -34,3 +34,16 @@ test('Don\'t clobber', function(assert) {
     assert.equal(window.Dummy, 'test', 'App is not exported to window.Dummy');
   });
 });
+
+
+test('unsets global', function(assert) {
+  App.someProp = 'foo-bar';
+  visit('/');
+
+  andThen(function() {
+    assert.ok('Dummy' in window, 'global should be present');
+    Ember.run(App, 'destroy');
+    assert.ok(!('Dummy' in window), 'global should NOT leak after it has been destroyed');
+  });
+});
+

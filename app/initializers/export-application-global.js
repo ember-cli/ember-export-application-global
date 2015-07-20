@@ -9,6 +9,13 @@ export function initialize(container, application) {
 
     if (!window[globalName]) {
       window[globalName] = application;
+
+      application.reopen({
+        willDestroy: function(){
+          this._super.apply(this, arguments);
+          delete window[globalName];
+        }
+      });
     }
   }
 };

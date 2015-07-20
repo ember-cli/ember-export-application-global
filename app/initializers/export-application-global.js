@@ -2,10 +2,14 @@ import Ember from 'ember';
 import config from '../config/environment';
 
 export function initialize(container, application) {
-  var classifiedName = Ember.String.classify(config.modulePrefix);
+  if (config.exportApplicationGlobal !== false) {
+    var globalName = typeof config.exportApplicationGlobal === 'string' ?
+      config.exportApplicationGlobal :
+      Ember.String.classify(config.modulePrefix);
 
-  if (config.exportApplicationGlobal && !window[classifiedName]) {
-    window[classifiedName] = application;
+    if (!window[globalName]) {
+      window[globalName] = application;
+    }
   }
 };
 

@@ -15,8 +15,7 @@ with `true` if you want the global exported, or `false` if you do not.
 
 module.exports = function(environment) {
   var ENV = {
-    /* snip */
-
+    // other configuration
     exportApplicationGlobal: ['staging', 'production'].indexOf(environment) === -1
   }
 };
@@ -24,9 +23,17 @@ module.exports = function(environment) {
 
 ## Installation
 
-```javascript
+```sh
+ember install:addon ember-export-application-global
+# or for ember-cli < 0.1.5
 npm install --save-dev ember-export-application-global
 ```
+
+## Available Configuration
+
+* `exportApplicationGlobal` - Specify if you want the global to be exported.
+  A `true` will export global as the application name, but a string will export
+  is as that string.
 
 ## Contributing
 

@@ -24,16 +24,14 @@ module.exports = function(environment) {
 ## Installation
 
 ```sh
-ember install:addon ember-export-application-global
-# or for ember-cli < 0.1.5
-npm install --save-dev ember-export-application-global
+ember install ember-export-application-global
 ```
 
 ## Available Configuration
 
 * `exportApplicationGlobal` - Specify if you want the global to be exported.
   A `true` will export global as the application name, but a string will export
-  is as that string.
+  it as that string, e.g. `window['yourString']`.
 
 ## Contributing
 

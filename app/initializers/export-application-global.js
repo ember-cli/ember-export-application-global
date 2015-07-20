@@ -3,9 +3,14 @@ import config from '../config/environment';
 
 export function initialize(container, application) {
   if (config.exportApplicationGlobal !== false) {
-    var globalName = typeof config.exportApplicationGlobal === 'string' ?
-      config.exportApplicationGlobal :
-      Ember.String.classify(config.modulePrefix);
+    var value = config.exportApplicationGlobal;
+    var globalName;
+
+    if (typeof value === 'string') {
+      globalName = value;
+    } else {
+      globalName = Ember.String.classify(config.modulePrefix);
+    }
 
     if (!window[globalName]) {
       window[globalName] = application;

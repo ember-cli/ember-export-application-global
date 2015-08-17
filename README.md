@@ -1,6 +1,8 @@
 # ember-export-application-global
 
 [![Build Status](https://travis-ci.org/ember-cli/ember-export-application-global.svg?branch=master)](https://travis-ci.org/ember-cli/ember-export-application-global)
+[![devDependency Status](https://david-dm.org/ember-cli/ember-export-application-global/dev-status.svg)](https://david-dm.org/ember-cli/ember-export-application-global#info=devDependencies)
+[![npm version](https://badge.fury.io/js/ember-export-application-global.svg)](http://badge.fury.io/js/ember-export-application-global)
 
 Sets `window.MyAppName` up as the application instance upon boot.
 

@@ -30,7 +30,7 @@ module('ExportApplicationGlobalInitializer', {
 test('it sets the application on window with the classified modulePrefix', function(assert) {
   config.modulePrefix = 'foo';
   var app = { reopen: function(){} };
-  initialize(null, app);
+  initialize(app);
 
   assert.equal(window.Foo, app);
 });
@@ -39,7 +39,7 @@ test('it sets the application on window with the classified modulePrefix when ex
   config.modulePrefix = 'foo';
   config.exportApplicationGlobal = true;
   var app = { reopen: function(){} };
-  initialize(null, app);
+  initialize(app);
 
   assert.equal(window.Foo, app);
 });
@@ -48,7 +48,7 @@ test('it does not set the global unless exportApplicationGlobal is true', functi
   config.modulePrefix = 'foo';
   config.exportApplicationGlobal = false;
   var app = { reopen: function(){} };
-  initialize(null, app);
+  initialize(app);
 
   assert.ok(window.Foo !== app);
 });
@@ -65,7 +65,7 @@ test('it sets a custom global name if specified', function(assert) {
   config.modulePrefix = 'foo';
   config.exportApplicationGlobal = 'Catz';
   var app = { reopen: function(){} };
-  initialize(null,  app);
+  initialize(app);
 
   assert.ok(window.Foo !== app);
   assert.ok(window.Catz === app);

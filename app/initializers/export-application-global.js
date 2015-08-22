@@ -1,7 +1,7 @@
 import Ember from 'ember';
 import config from '../config/environment';
 
-export function initialize(container, application) {
+export function initialize(application) {
   if (config.exportApplicationGlobal !== false) {
     var value = config.exportApplicationGlobal;
     var globalName;

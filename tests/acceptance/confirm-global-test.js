@@ -17,6 +17,8 @@ module('Acceptance: ConfirmGlobal', {
 });
 
 test('Set global', function(assert) {
+  assert.expect(1);
+
   App.someProp = 'foo-bar';
   visit('/');
 
@@ -26,6 +28,8 @@ test('Set global', function(assert) {
 });
 
 test('Don\'t clobber', function(assert) {
+  assert.expect(1);
+
   window.Dummy = 'test';
   App.someProp = 'foo-bar';
   visit('/');
@@ -37,6 +41,8 @@ test('Don\'t clobber', function(assert) {
 
 
 test('unsets global', function(assert) {
+  assert.expect(2);
+
   App.someProp = 'foo-bar';
   visit('/');
 
@@ -46,4 +52,3 @@ test('unsets global', function(assert) {
     assert.ok(!('Dummy' in window), 'global should NOT leak after it has been destroyed');
   });
 });
-

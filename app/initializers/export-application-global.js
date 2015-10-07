@@ -17,14 +17,14 @@ export function initialize() {
       window[globalName] = application;
 
       application.reopen({
-        willDestroy: function(){
+        willDestroy: function() {
           this._super.apply(this, arguments);
           delete window[globalName];
         }
       });
     }
   }
-};
+}
 
 export default {
   name: 'export-application-global',

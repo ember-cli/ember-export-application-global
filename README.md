@@ -26,7 +26,7 @@ module.exports = function(environment) {
 ## Installation
 
 ```sh
-ember install:addon ember-export-application-global
+ember install ember-export-application-global
 # or for ember-cli < 0.1.5
 npm install --save-dev ember-export-application-global
 ```

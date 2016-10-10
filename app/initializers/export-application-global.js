@@ -25,13 +25,13 @@ export function initialize() {
       globalName = Ember.String.classify(config.modulePrefix);
     }
 
-    if (!window[globalName]) {
-      window[globalName] = application;
+    if (!theGlobal[globalName]) {
+      theGlobal[globalName] = application;
 
       application.reopen({
         willDestroy: function() {
           this._super.apply(this, arguments);
-          delete window[globalName];
+          delete theGlobal[globalName];
         }
       });
     }

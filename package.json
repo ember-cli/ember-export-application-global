@@ -9,7 +9,7 @@
   "scripts": {
     "start": "ember server",
     "build": "ember build",
-    "test": "ember test"
+    "test": "ember try:each"
   },
   "repository": {
     "type": "git",
@@ -21,19 +21,18 @@
   "author": "Robert Jackson <me@rwjblue.com>",
   "license": "MIT",
   "devDependencies": {
-    "ember-cli": "1.13.8",
-    "ember-cli-app-version": "1.0.0",
-    "ember-cli-content-security-policy": "0.4.0",
-    "ember-cli-dependency-checker": "^1.0.1",
-    "ember-cli-htmlbars": "0.7.9",
-    "ember-cli-htmlbars-inline-precompile": "^0.2.0",
-    "ember-cli-inject-live-reload": "^1.3.1",
-    "ember-cli-qunit": "^1.0.0",
-    "ember-cli-release": "^0.2.7",
-    "ember-cli-uglify": "^1.2.0",
+    "ember-cli": "2.8.0",
+    "ember-cli-app-version": "^1.0.0",
+    "ember-cli-htmlbars": "^1.0.3",
+    "ember-cli-htmlbars-inline-precompile": "^0.3.1",
+    "ember-cli-inject-live-reload": "^1.4.0",
+    "ember-cli-qunit": "^2.1.0",
+    "ember-cli-release": "^0.2.9",
+    "ember-cli-test-loader": "^1.1.0",
     "ember-disable-prototype-extensions": "^1.0.0",
+    "ember-load-initializers": "^0.5.1",
     "ember-resolver": "2.0.3",
-    "ember-try": "0.0.8"
+    "loader.js": "^4.0.11"
   },
   "keywords": [
     "ember-addon"
@@ -45,5 +44,8 @@
   "bugs": {
     "url": "https://github.com/ember-cli/ember-export-application-global/issues"
   },
-  "homepage": "https://github.com/ember-cli/ember-export-application-global"
+  "homepage": "https://github.com/ember-cli/ember-export-application-global",
+  "dependencies": {
+    "ember-cli-babel": "^5.1.10"
+  }
 }

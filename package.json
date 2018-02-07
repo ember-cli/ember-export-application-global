@@ -1,6 +1,6 @@
 {
   "name": "ember-export-application-global",
-  "version": "2.0.0",
+  "version": "2.0.1",
   "description": "Sets `window.MyAppName` up as the application instance upon boot.",
   "directories": {
     "doc": "doc",

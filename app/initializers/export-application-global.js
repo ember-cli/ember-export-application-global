@@ -1,10 +1,11 @@
-import Ember from 'ember';
+/* global global */
+import { classify } from '@ember/string';
 import config from '../config/environment';
 
 export function initialize() {
-  var application = arguments[1] || arguments[0];
+  const application = arguments[1] || arguments[0];
   if (config.exportApplicationGlobal !== false) {
-    var theGlobal;
+    let theGlobal;
     if (typeof window !== 'undefined') {
         theGlobal = window;
     } else if (typeof global !== 'undefined') {
@@ -16,13 +17,13 @@ export function initialize() {
        return;
     }
 
-    var value = config.exportApplicationGlobal;
-    var globalName;
+    const value = config.exportApplicationGlobal;
+    let globalName;
 
     if (typeof value === 'string') {
       globalName = value;
     } else {
-      globalName = Ember.String.classify(config.modulePrefix);
+      globalName = classify(config.modulePrefix);
     }
 
     if (!theGlobal[globalName]) {

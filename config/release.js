@@ -1,4 +1,5 @@
 /* jshint node:true */
+/* eslint-disable no-console */
 
 var execSync = require('child_process').execSync;
 

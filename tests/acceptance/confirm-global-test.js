@@ -1,54 +1,51 @@
-import Ember from 'ember';
 import { module, test } from 'qunit';
-import startApp from '../helpers/start-app';
+import { run } from '@ember/runloop';
+import { visit } from '@ember/test-helpers';
+import { setupApplicationTest } from 'ember-qunit';
 
-var App;
 
-module('Acceptance: ConfirmGlobal', {
-  beforeEach: function() {
-    App = startApp();
-  },
+module('Acceptance | ConfirmGlobal', function(hooks) {
+  setupApplicationTest(hooks);
 
-  afterEach: function() {
-    Ember.run(App, 'destroy');
-    delete window.Dummy;
-    App = null;
-  }
-});
+  test('Set global', async function(assert) {
+    assert.expect(1);
 
-test('Set global', function(assert) {
-  assert.expect(1);
+    const { application } = this.owner;
 
-  App.someProp = 'foo-bar';
-  visit('/');
+    application.someProp = 'foo-bar';
 
-  andThen(function() {
-    assert.equal(window.Dummy.someProp, App.someProp, 'App is exported to window.Dummy');
+    await visit('/');
+
+    assert.equal(window.Dummy.someProp, application.someProp, 'App is exported to window.Dummy');
   });
-});
 
-test('Don\'t clobber', function(assert) {
-  assert.expect(1);
+  test('Don\'t clobber', async function(assert) {
+    assert.expect(1);
 
-  window.Dummy = 'test';
-  App.someProp = 'foo-bar';
-  visit('/');
+    window.Dummy = 'test';
 
-  andThen(function() {
+    const { application } = this.owner;
+
+    application.someProp = 'foo-bar';
+
+    await visit('/');
+
     assert.equal(window.Dummy, 'test', 'App is not exported to window.Dummy');
   });
-});
 
+  test('unsets global', async function(assert) {
+    assert.expect(2);
 
-test('unsets global', function(assert) {
-  assert.expect(2);
+    const { application } = this.owner;
 
-  App.someProp = 'foo-bar';
-  visit('/');
+    application.someProp = 'foo-bar';
 
-  andThen(function() {
+    await visit('/');
+
     assert.ok('Dummy' in window, 'global should be present');
-    Ember.run(App, 'destroy');
+    run(application, 'destroy');
     assert.ok(!('Dummy' in window), 'global should NOT leak after it has been destroyed');
   });
 });
+
+

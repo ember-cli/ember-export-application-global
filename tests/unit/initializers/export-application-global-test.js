@@ -6,7 +6,7 @@ import { initialize } from '../../../initializers/export-application-global';
 var application, originalModulePrefix, originalExportApplicationGlobal;
 
 module('ExportApplicationGlobalInitializer', {
-  setup: function() {
+  beforeEach() {
     originalModulePrefix = config.modulePrefix;
     originalExportApplicationGlobal = config.exportApplicationGlobal;
 
@@ -16,7 +16,7 @@ module('ExportApplicationGlobalInitializer', {
     });
   },
 
-  teardown: function() {
+  afterEach() {
     var classifiedName = Ember.String.classify(config.modulePrefix);
     delete window[classifiedName];
     delete window.Foo;

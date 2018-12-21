@@ -16,7 +16,7 @@
     "url": "https://github.com/ember-cli/ember-export-application-global.git"
   },
   "engines": {
-    "node": ">= 4"
+    "node": "6.* || 8.* || >= 10.*"
   },
   "author": "Robert Jackson <me@rwjblue.com>",
   "license": "MIT",

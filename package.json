@@ -45,5 +45,8 @@
   "bugs": {
     "url": "https://github.com/ember-cli/ember-export-application-global/issues"
   },
-  "homepage": "https://github.com/ember-cli/ember-export-application-global"
+  "homepage": "https://github.com/ember-cli/ember-export-application-global",
+  "resolutions": {
+    "**/engine.io": "~3.3.0"
+  }
 }

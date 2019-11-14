@@ -22,6 +22,7 @@
   "license": "MIT",
   "devDependencies": {
     "ember-cli": "~3.9.0",
+    "ember-cli-babel": "^7.11.0",
     "ember-cli-dependency-checker": "^3.2.0",
     "ember-cli-htmlbars": "^3.1.0",
     "ember-cli-htmlbars-inline-precompile": "^2.1.0",
@@ -36,9 +37,7 @@
   "keywords": [
     "ember-addon"
   ],
-  "dependencies": {
-    "ember-cli-babel": "^7.11.0"
-  },
+  "dependencies": { },
   "ember-addon": {
     "configPath": "tests/dummy/config"
   },
@@ -46,5 +45,8 @@
   "bugs": {
     "url": "https://github.com/ember-cli/ember-export-application-global/issues"
   },
-  "homepage": "https://github.com/ember-cli/ember-export-application-global"
+  "homepage": "https://github.com/ember-cli/ember-export-application-global",
+  "resolutions": {
+    "**/engine.io": "~3.3.0"
+  }
 }

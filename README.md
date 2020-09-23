@@ -35,7 +35,7 @@ npm install --save-dev ember-export-application-global
 
 * `exportApplicationGlobal` - Specify if you want the global to be exported.
   A `true` will export global as the application name, but a string will export
-  is as that string.
+  it as that string.
 
 ## Contributing
 

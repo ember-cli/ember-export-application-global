@@ -29,7 +29,7 @@
     "ember-cli-inject-live-reload": "^2.0.2",
     "ember-qunit": "^4.6.0",
     "ember-disable-prototype-extensions": "^1.1.0",
-    "ember-load-initializers": "^2.1.1",
+    "ember-load-initializers": "^2.1.2",
     "ember-resolver": "^8.0.2",
     "ember-try": "^1.4.0",
     "loader.js": "^4.0.11"

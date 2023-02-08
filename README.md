@@ -10,6 +10,12 @@ By default this is only done when not running in production mode, but you can fu
 control when it is executed by including `exportApplicationGlobal` in your `config/environment.js`
 with `true` if you want the global exported, or `false` if you do not.
 
+## :warning: Deprecated
+
+`ember-export-application-global` is deprecated. If you still need global access 
+to your application's instance, you could consider making it available on 
+`window` via an [instance initializer](https://guides.emberjs.com/release/applications/initializers/#toc_application-instance-initializers), similar to this addon's implementation.
+
 ## Example Configuration
 
 ```javascript
